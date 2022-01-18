@@ -1,38 +1,603 @@
-.App {
-  text-align: center;
+/* font-family: 'Kumbh Sans', sans-serif; */
+/* font-family: 'Roboto Slab', serif; */
+/* font-family: 'Space Mono', monospace; */
+
+*{
+	box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root{
+	--color-light-blue: #d7e0ff;
+    --color-dark-blue: #1e213f;
+    --color-dark-blue-2: #161932;
+
+	--orange: #f87070;
+	--cyan: #70F3F8;
+	--purple: #d881f8;
+
+	--color-light-grey: #eff1fa;
+
+	--color-font-grey: #999999;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.font-Kumbh{
+	font-family: 'Kumbh Sans', sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.font-roboto{
+	font-family: 'Roboto Slab', serif;
 }
 
-.App-link {
-  color: #61dafb;
+.font-space{
+	font-family: 'Space Mono', monospace;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.orange{
+	background-color: var(--orange);
+	stroke: var(--orange);
+}
+
+.cyan{
+	background-color: var(--cyan);
+	stroke: var(--cyan);
+}
+
+.purple{
+	background-color: var(--purple);
+	stroke: var(--purple);
+}
+
+
+
+/* _____Movil desing_____  */
+
+body{
+	margin: 0;
+	font-family: 'Kumbh Sans', sans-serif;
+	color: white;
+	background-color: var(--color-dark-blue);
+}
+
+.App{
+	padding-top: 0.7em;
+	
+}
+
+.header{
+	margin-bottom: 2.7em;
+}
+
+.title{
+	text-align: center;
+	font-family: 'Kumbh Sans', sans-serif;
+	font-size: 1.6rem;
+	color: var(--color-light-blue);
+}
+
+main{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+
+/* ModeButtons */
+.ModeButtons{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	z-index: 500;
+	height: 4em;
+	width: 90%;
+	max-width: 21.1em;
+	padding: 0.4em;
+	margin-bottom: 6.5em;
+	border-radius: 50em;
+	background-color: #161932;
+}
+
+.toggle-container{
+	position: absolute;
+	height: 4em;
+	width: 90%;
+	max-width: 21.1em;
+	padding: 0.4em;
+}
+
+.toggle{
+	position: relative;
+	left: 0;
+	height: 100%;
+	width: calc(100% / 3);
+	border-radius: 50em;
+	transition: 0.3s;	
+}
+
+.mode-button{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	z-index: 100;
+	height: 80%;
+	width: 33%;
+	font-size: 0.8rem;
+	font-weight: 700;
+	cursor: pointer;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);			/* Esto quita el recuadro azul cuando hacermos click con el movil */
+}
+
+
+/* Progress Circle */
+.ProgressCircle{
+	padding: 0.59em;
+	border-radius: 50em;
+	margin-bottom: 10em;												
+	background: linear-gradient(to bottom right, var(--color-dark-blue-2) 30%, rgba(215, 224, 255, 0.13));
+	box-shadow: 
+			-18px -18px 35px rgba(215, 224, 255, 0.07), 
+			-18px -18px 35px rgba(0, 0, 255, 0.08), 
+			18px 18px 35px rgba(0, 0, 0, 0.3),
+			18px 18px 35px rgba(0, 0, 255, 0.03); 
+	transform: scale(1.7);
+}
+.internal-circle{
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	display: flex;
+	border: 0.2em solid var(--color-dark-blue-2);
+	border-radius: 50em;
+	color: black;
+	background-color: var(--color-dark-blue-2);
+}
+
+.percent{
+	position: relative;
+	height: 150px;
+	width: 150px;
+}
+
+.svg{
+	position: relative;
+	height: 150px;
+	width: 150px;
+	transform: rotate(-90deg);
+}
+
+.circle{
+	height: 150px;
+	width: 150px;
+	fill: none;
+	stroke-width: 5;									
+	stroke-dasharray: 440;
+	stroke-dashoffset: 440;
+	stroke-linecap: round ;
+	transform: translate(5px, 5px);
+}
+
+.circle-one{
+	stroke-dashoffset: 0;
+	stroke: var(--color-dark-blue-2);
+}
+
+.circle-two{
+	transition: 0.2s;	
+}
+
+.display {													
+	position: absolute;
+	top: 43px;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	padding-top: 0.35em;
+	color: var(--color-light-blue);
+}
+
+.TimeComponent{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 1.2em;
+	width: 2.5em;
+	margin-bottom: 0.05em;
+	font-size: 2.4rem;
+	font-weight: 700;
+}
+
+.StartButton{
+	font-size: 0.48rem;
+	font-weight: 700;
+	word-spacing: 0.78em;
+	cursor: pointer;
+}
+
+
+/*_____Settings_____*/
+.icon-settings{
+	font-size: 2em;
+	color: var(--color-light-blue);
+	opacity: 0.55;
+	cursor: pointer;
+}
+
+.Modal{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 700;
+	height: 100vh;
+	width: 100vw;
+	padding: 0 1.5em;
+	padding-top: 2.6em;
+	background-color: rgba(0, 0 , 0, 0.45);
+	opacity: 0;									/* Con esto, hago invisible a este elemento, como si no existiera. Esto lo cambio con la clase modal-activate que ademas hace el efecto de que el modal esta creciendo desde el centro */
+	transition: 0.3s;
+	pointer-events: none;						/* Esto sirve para que no pueda hacer click no seleccionar nada, es como si no existiera. Esto lo cambio con una segunda clase */
+}
+
+.modal-activate{
+	pointer-events: initial;					/* Esto sirve para que no pueda hacer click no seleccionar nada, es como si no existiera. Esto lo cambio con una segunda clase */
+	opacity: 1;
+}
+
+.settings{
+	z-index: 600;
+	padding: 0.3em 1.3em;
+	border-radius: 1em;
+	color: black;
+	background-color: white;
+	transform: scale(0);						/* Con esto, este elemento va a ser tan pequeño que no va a tener tamaño, con la clase "settings-activate" le devuelvo su tamaño original y junto con la propiedad "transition: 0.3s" hago el efecto de que esta cresiendo */				
+	transition: 0.3s;
+}
+
+.settings-activate{
+	transform: scale(1);
+}
+
+.setting-top-container{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 0.5em;
+	font-size: 0.9rem;
+}
+
+.close-icon{
+	color: #999999;
+	cursor: pointer;
+}
+
+.bar{
+	position: relative;
+	left: -1.3em;						/* Esta es la medida del pading de su caja padre, lo uso para conpensar */
+	height: 1px;
+	width: calc(100% + 2.6em);			/* 2.6 es la medida del padding de su caja padre multiplicado X2. Lo uso para compensar */
+	margin-bottom: 1.7em;
+	background-color: #999999;
+}
+
+.time-setting{
+	margin-bottom: 1.63em;
+}
+
+.time-title{
+	margin-bottom: 1.3em;
+	text-align: center;
+	font-size: 0.8rem;
+	letter-spacing: 0.25em;
+}
+
+.modes-minutes{
+	padding-bottom: 1em;
+	border-bottom: 1px solid #999999;
+}
+
+.ChangeMinutes{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 2.5em;
+	width: 100%;
+	margin-bottom: 0.6em;
+}
+
+.minutes-name{
+	font-size: 0.82rem;
+	font-weight: 700;
+	color: #999999;
+}
+
+.minutes-container{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;	
+	height: 100%;
+	width: 50%;
+	padding: 0.6em 1em;
+	border-radius: 0.6em;
+	background-color: var(--color-light-grey);
+}
+
+.minutes-settings{
+	font-weight: 700;
+}
+
+.arrows{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+}
+
+.arrow{
+	height: 50%;
+	transform: scale(0.9);
+	cursor: pointer;
+}
+
+.arrow-down{
+	transform: scale(0.9) rotate(180deg);
+}
+
+
+/*_____font-settings_____*/
+.font-setting{
+	padding-bottom: 1.9em;
+	margin-bottom: 1.63em;
+	border-bottom: 1px solid #999999;
+}
+
+.font-title{
+	margin-bottom: 1.3em;
+	text-align: center;
+	font-size: 0.8rem;
+	letter-spacing: 0.25em;
+}
+
+.fonts{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.ChangeFont{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 2.8em;
+	width: 2.8em;
+	margin: 0 0.6em;
+	font-weight: 700;
+	border-radius: 10em;
+	background-color: var(--color-light-grey);
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+
+/*_____color-setting_____*/
+.color-setting{
+	margin-bottom: 0.5em;
+}
+
+.color-title{
+	margin-bottom: 1.3em;
+	text-align: center;
+	font-size: 0.8rem;
+	letter-spacing: 0.25em;
+}
+
+.colors{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.ChangeColor{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 2.8em;
+	width: 2.8em;
+	margin: 0 0.6em;
+	font-weight: 700;
+	border-radius: 10em;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.done{
+	font-size: 1.3rem;
+	font-weight: 700;
+}
+
+.apply{
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	top: 1.5em;
+	display: flex;
+	height: 2.6em;
+	width: 7.6em;
+	margin-right: auto;
+	margin-left: auto;
+	border-radius: 10em;
+	font-size: 1.3rem;
+	color: #ffffff;
+}
+
+
+
+
+
+
+/* _____Estilo de Tablet:_____ */
+@media screen and (min-width: 480px) {	
+
+	.App{
+		width: 83.3%;										/* Este numero compensa el scale(1.2) */  
+		padding-top: 3em;							
+		transform: scale(1.2);							
+		transform-origin: top left;						
+	}
+
+
+	/* ModeButtons */
+	.ModeButtons{
+		max-width: 21.1em;									
+		margin-bottom: 11.5em;						
+	}
+
+	.toggle-container{
+		max-width: 21.1em;									
+	}
+
+
+	/* Progress Circle */
+	.ProgressCircle{	
+		margin-bottom: 12em;							
+		transform: scale(2.1);							
+	}
+
+
+	/*_____Settings_____*/
+	.Modal{
+		z-index: 700;							
+		height: 83.3vh;								
+		width: 100%;					
+		padding: 0 5em;
+		padding-top: 15em;						
+	}
+
+	.modal-activate{
+		pointer-events: initial;					
+	}
+
+	.settings{
+		padding: 0.6em 1.6em;					
+	}
+
+	.bar{
+		left: -1.6em;							
+		width: calc(100% + 3.2em);			
+	}
+
+	.time-title{
+		text-align: start;						
+	}
+
+	.modes-minutes{
+		display: flex;								
+		justify-content: space-between;					
+		align-items: center;						
+		padding-bottom: 1.2em;						
+	}
+
+	.ChangeMinutes{
+		display: initial;							
+		height: auto;								
+		width: 30%;								
+	}
+
+	.minutes-name{
+		font-size: 0.82rem;
+		color: #999999;
+		font-weight: 700;
+	}
+
+	.minutes-container{
+		height: 2.8em;									
+		width: 100%;							
+	}
+
+
+	/* font-settings:*/
+	.font-setting{
+		display: flex;								
+		justify-content: space-between;					
+		align-items: center;						
+		padding-bottom: 1.6em;							
+		margin-bottom: 1.6em;							
+	}
+
+	.ChangeFont{
+		margin: 0;												
+		margin-left: 0.6em;									
+	}
+
+
+	/*_____color-setting_____*/
+	.color-setting{
+		margin-bottom: -1.5em;					
+		display: flex;									
+		justify-content: space-between;				
+		align-items: center;						
+		padding-bottom: 1.8em;							
+	}
+
+	.ChangeColor{
+		margin: 0;											
+		margin-left: 0.6em;									
+	}
+
+	.apply{
+		top: 1.7em;											
+	}
+}
+
+
+
+
+
+/* Estilo de desktop */
+@media screen and (min-width: 800px) {
+	.App{
+		padding-top: 1.5em;									
+	}
+
+
+	/* ModeButtons */
+	.ModeButtons{
+		margin-bottom: 8.7em;						
+	}
+
+
+	/* Progress Circle */
+	.ProgressCircle{
+		margin-bottom: 10.5em;					
+	}
+	
+
+	/*_____Settings_____*/
+	.Modal{
+		padding-top: 9em;					
+		z-index: 700;							
+		height: 83.3vh;							
+
+	}
+
+	.settings{
+		max-width: 37em;						
+		margin-left: auto;							
+		margin-right: auto;							
+	}
+	
+
+	/* font-settings */
+	.font-setting{
+		padding-bottom: 1.6em;						
+	}
+
+
+	/* apply*/
+	.apply{
+		top: 1.7em;							
+	}
+
 }
