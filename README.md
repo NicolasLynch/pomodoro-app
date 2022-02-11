@@ -9,4 +9,4 @@
 
 ## Install dependencies:
 
-- Remember to have React installed
+- Remember to have React installed.
